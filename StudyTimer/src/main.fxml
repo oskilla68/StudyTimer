@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="112.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="41.0" layoutY="14.0" prefHeight="42.0" prefWidth="239.0" text="Study Timer Counter" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="startButton" layoutX="137.0" layoutY="71.0" mnemonicParsing="false" onAction="#handleStartCount" text="Start" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="137.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="71.0" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
