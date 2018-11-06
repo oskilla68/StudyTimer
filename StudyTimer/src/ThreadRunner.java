@@ -26,26 +26,28 @@ public class ThreadRunner implements Runnable {
 				   			   "subtitle \"2 hour study session complete\"" + 
 				   			   "sound name \"Ping.aiff\"";
 		studyMode = true;
-		long timeDiff = 0;
+		long timeDiff = 119;
     	long startTime = System.nanoTime();
     	mainMenu.startButton.setDisable(true);
     	long totalTime = mainMenu.totalTime;
     	for(;timeDiff < totalTime;) {
-    		long endTime = System.nanoTime();
-    		timeDiff = endTime - startTime;
-    		TimeUnit timeUnit = TimeUnit.NANOSECONDS;
-    		timeDiff = timeUnit.toMinutes(timeDiff);
-    		
     		try {
 				if(studyMode) {
-					Thread.sleep(1000);
+					Thread.sleep(25*60000);
 				} else {
-					Thread.sleep(10000);
+					Thread.sleep(5*60000);
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
     		
+    		long endTime = System.nanoTime();
+    		timeDiff = endTime - startTime;
+    		TimeUnit timeUnit = TimeUnit.NANOSECONDS;
+    		timeDiff = timeUnit.toMinutes(timeDiff) + 119;
+
+    		System.out.println(timeDiff);
+    		if(timeDiff >= totalTime) break;
     		if(studyMode) {
     			try {
     				Runtime.getRuntime().exec(new String[] {"osascript", "-e", takeABreakCommand});
@@ -64,7 +66,6 @@ public class ThreadRunner implements Runnable {
     		
     	}
     	
-    	
     	if(timeDiff == totalTime) {
     		mainMenu.startButton.setDisable(false);
     		try {
@@ -72,7 +73,6 @@ public class ThreadRunner implements Runnable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-    		return;
     	}
 	}
 

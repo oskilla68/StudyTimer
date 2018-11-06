@@ -39,7 +39,6 @@ public class MainMenu extends Application {
 		startButton.setDisable(true);
 		Thread thread = new Thread(new ThreadRunner(this));
     	thread.start();
-    	return;
     }
     
 	public static void main(String[] args) {
