@@ -25,8 +25,17 @@ public class ThreadRunner implements Runnable {
 				   			   "with title \"Study Session Complete\"" +
 				   			   "subtitle \"2 hour study session complete\"" + 
 				   			   "sound name \"Ping.aiff\"";
+//		BlackListEditor blackListEditor = new BlackListEditor();
+//		try {
+//			ProcessBuilder processBuilder = new ProcessBuilder("/bin/bash", "src/RunBlock.sh");
+//			ProcessBuilder processBuilder = new ProcessBuilder("osascript", "do shell script", "\"echo '127.0.0.1 www.facebook.com' >> /etc/hosts $*\"", "with administrator privileges");
+//			processBuilder.start();
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
+
 		studyMode = true;
-		long timeDiff = 119;
+		long timeDiff = 0;
     	long startTime = System.nanoTime();
     	mainMenu.startButton.setDisable(true);
     	long totalTime = mainMenu.totalTime;
@@ -39,12 +48,13 @@ public class ThreadRunner implements Runnable {
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+				return;
 			}
     		
     		long endTime = System.nanoTime();
     		timeDiff = endTime - startTime;
     		TimeUnit timeUnit = TimeUnit.NANOSECONDS;
-    		timeDiff = timeUnit.toMinutes(timeDiff) + 119;
+    		timeDiff = timeUnit.toMinutes(timeDiff);
 
     		System.out.println(timeDiff);
     		if(timeDiff >= totalTime) break;
@@ -54,6 +64,11 @@ public class ThreadRunner implements Runnable {
     			} catch (IOException e) {
     				e.printStackTrace();
     			}
+//    			try {
+//					blackListEditor.deleteHosts();
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
     			studyMode = false;
     		} else {
     			try {
